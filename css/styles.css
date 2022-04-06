@@ -8,6 +8,7 @@
   --primary-black-color: #000000;
   --primary-bc-color: #f5f4fa;
   --secondary-bc-color: #2f303a;
+  --typical-gap: 30px;
 }
 
 body {
@@ -19,23 +20,42 @@ body {
   color: var(--primary-text-color);
 }
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul{
+padding: 0;
+margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%; /*при этом картинка не будет больше оригинального размера*/
+}
+
+.list {
+  list-style: none;
+ }
+
+.link {
+  text-decoration: none;
+}
+
 .container {
   width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
 
-  outline: 1px solid tomato;
-}
-
-.list {
-  list-style: none;
-  /* сбрасываем паддинги и маржины у списков*/
-  padding: 0;
-  margin: 0;
-}
-.link {
-  text-decoration: none;
+ /*  outline: 1px solid tomato; */
 }
 
 /*скрывает заголовок*/
@@ -52,11 +72,9 @@ body {
   margin: -1px;
 }
 
-img {
-  display: block;
-}
 
-/* Page header */
+
+/*----------------Page header--------------- */
 
 .header-page {
   border-bottom: 1px solid #ececec;
@@ -65,7 +83,6 @@ img {
 .heder-main {
   display: flex;
   align-items: center;
-  
 }
 
 .header-nav {
@@ -73,14 +90,14 @@ img {
   align-items: center;
 }
 
-.header-nav > .logo {
+.header-nav .logo {
   display: block;
   padding-top: 24px;
   padding-bottom: 25px;
   margin-right: 93px;
 }
 
-/* Logo */
+/*----------------Logo--------------- */
 
 .logo {
   color: var(--accent-primary-text-color);
@@ -91,11 +108,12 @@ img {
   line-height: 1.19;
   letter-spacing: 0.03em;
 }
+
 .header-logo {
   color: var(--primary-black-color);
 }
 
-/* Header-nav */
+/*----------------Header-nav--------------- */
 
 .header-list {
   display: flex;
@@ -132,7 +150,7 @@ img {
   color: var(--accent-primary-text-color);
 }
 
-/* Heder-Contacts */
+/*----------------Heder-Contacts--------------- */
 
 .header-contacts {
   display: block;
@@ -142,15 +160,15 @@ img {
   color: var(--primary-text-color);
 }
 
-/* Main contents */
+/*----------------Main contents--------------- */
 
-/* Section */
+/*-----Section-----*/
 
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
 
-  /*outline: 1px solid green;*/
+ /*  outline: 1px solid green; */
 }
 
 .section-title {
@@ -166,17 +184,22 @@ img {
   text-align: center;
 }
 
-/* Hero */
+/*----------------Hero--------------- */
 
 .hero-section {
+  padding-top: 200px;
+  padding-bottom: 200px;
+
   text-align: center;
 
-  /*outline: 1px solid tomato;*/
+  background-color: var(--secondary-bc-color);/* добавил для видимости заголовка - после удалить */
+  
+  /* outline: 1px solid tomato; */
 }
 
 .hero-title {
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: var(--typical-gap);
 
   color: var(--primary-white-color);
 
@@ -184,10 +207,10 @@ img {
   font-size: 44px;
   line-height: 1.36;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
-
-  background-color: var(--secondary-bc-color); /* добавил для видимости заголовка - после удалить */
+  text-transform: uppercase;  
 }
+
+/*-----Button Hero  -----*/
 
 .btn-hero {
   padding: 10px 32px;
@@ -213,15 +236,14 @@ img {
   background-color: var(--accent-secondary-text-color);
 }
 
-/* Features */
+/*----------------Features--------------- */
 
 .section.features {
   padding-bottom: 0;
 }
 
 .features-list,
-.about-list,
-.team-list {
+.about-list {
   display: flex;
   justify-content: space-between;
 }
@@ -231,7 +253,6 @@ img {
 }
 
 .features-title {
-  margin-top: 0;
   margin-bottom: 10px;
 
   color: var(--title-text-color);
@@ -244,8 +265,6 @@ img {
 }
 
 .features-text {
-  margin-top: 0;
-  margin-bottom: 0;
   line-height: 1.71;
 }
 
@@ -256,23 +275,35 @@ img {
   background-color: var(--primary-bc-color);
 }
 
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  
+  margin-top: calc(-1* var(--typical-gap));
+  margin-left: calc(-1 * var(--typical-gap));
+}
 
 .team-item {
-  padding-top: 0;
-  padding-bottom: 30px;
+  flex-basis: calc(100% / 4 - var(--typical-gap));
+  
+  margin-top: var(--typical-gap);
+  margin-left: var(--typical-gap); 
+}
 
-  width: 270px;
-
+.card-team{
   background-color: var(--primary-white-color);
+  border-radius: 0px 0px 4px 4px;
 }
 
-.team-image {
-  margin-top: 0;
- margin-bottom: 30px; 
+.card-team-content{
+  padding-top: var(--typical-gap);
+  padding-bottom: var(--typical-gap);
+  
+  text-align: center;
 }
+
 
 .team-title {
-  margin-top: 0;
   margin-bottom: 10px;
 
   color: var(--title-text-color);
@@ -280,28 +311,25 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
-  letter-spacing: 0.03em;
-  text-align: center;
+  letter-spacing: 0.03em;  
 }
 .team-text {
-  margin: 0;
-
   font-size: 16px;
   line-height: 1.19;
   letter-spacing: 0.03em;
-  text-align: center;
 }
 
-/* Portfolio */
 
-/* Список - Filter*/
+/*----------------Portfolio--------------- */
+
+
+/*----Список - Filter---- */
 
 .filter-list {
   display: flex;
   align-items:center;
   justify-content: center;
-
-  margin-top: 0;
+  
   margin-bottom: 50px;
 }
 
@@ -309,6 +337,7 @@ img {
 .filter-item:not(:last-child) {
   margin-right: 8px;
 }
+
 
 .btn {
   padding: 6px 22px;
@@ -335,29 +364,37 @@ img {
   color: var(--primary-white-color);
 }
 
-/* Список Works */
+/*----Список Works---- */
+
 
 .work-list{
   display: flex;
   flex-wrap: wrap;
-}
 
+  margin-top: calc(-1 * var(--typical-gap));
+  margin-left: calc(-1 * var(--typical-gap));    
+}
 
 .work-item {
-  padding-top: 0;
-  padding-bottom: 20px;
+  flex-basis: calc(100% / 3 - var(--typical-gap));
   
-  
-  background-color: var(--primary-white-color);
+  margin-top: var(--typical-gap);
+  margin-left: var(--typical-gap);
 }
 
-.work-image {
-  margin-top: 0;
-  margin-bottom: 20px;
+.card-work {
+  background-color: var(--primary-white-color);
+  border:1px solid #EEEEEE;
+  
+  /* outline: 1px solid tomato; */
+}
+
+.card-work-content {
+  padding: 20px 24px;
+    
 }
 
 .work-title {
-  margin-top: 0;
   margin-bottom: 4px;
 
   color: var(--title-text-color);
@@ -365,21 +402,16 @@ img {
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
-  letter-spacing: 0.06em;
-  
+  letter-spacing: 0.06em;   
 }
 
 .work-text {
-  margin-top: 0;
-  margin-bottom: 0;
-
   font-size: 16px;
   line-height: 1.89;
-  letter-spacing: 0.03em;
-  
+  letter-spacing: 0.03em;  
 }
 
-/* Page footer */
+/*----------------Page footer--------------- */
 
 .footer-page {
   padding-top: 60px;
@@ -395,12 +427,13 @@ img {
   padding-bottom: 0;
 }
 
-/* Footer logo */
+/* -------Footer logo------- */
 .footer-logo {
   color: var(--primary-white-color);
 }
 .footer-address {
   margin-top: 20px;
+
   font-style: normal;
   line-height: 1.71;
 }
