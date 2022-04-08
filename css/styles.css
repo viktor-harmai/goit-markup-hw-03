@@ -39,6 +39,7 @@ margin: 0;
 img {
   display: block;
   max-width: 100%; /*при этом картинка не будет больше оригинального размера*/
+  height:auto;
 }
 
 .list {
@@ -238,19 +239,19 @@ img {
 
 /*----------------Features--------------- */
 
-.section.features {
-  padding-bottom: 0;
-}
 
-.features-list,
-.about-list {
+.features-list {
   display: flex;
-  justify-content: space-between;
 }
 
 .features-item {
   width: 270px;
 }
+
+.features-item:not(:last-child) {
+  margin-right: var(--typical-gap);
+}
+
 
 .features-title {
   margin-bottom: 10px;
@@ -268,6 +269,17 @@ img {
   line-height: 1.71;
 }
 
+/*----------------About---------------- */
+
+
+.section.about {
+  padding-top: 0;
+}
+
+.about-list {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*----------------Team---------------- */
 
@@ -421,10 +433,10 @@ img {
 }
 
 .footer-item {
-  padding-bottom: 9px;
+  margin-bottom: 9px;
 }
 .footer-item:last-child {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* -------Footer logo------- */
